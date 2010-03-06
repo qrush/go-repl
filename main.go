@@ -219,7 +219,7 @@ func main() {
 		case '!':
 			fmt.Println(w.source())
 		case ':':
-			tree, err := parser.ParseStmtList("go-repl", line[2:]);
+			tree, err := parser.ParseStmtList("go-repl", line[2:], nil);
 			if err != nil {
 				fmt.Println("Parse error:", err);
 				continue;
@@ -230,9 +230,9 @@ func main() {
 			unstable = compile(w).Len() > 0;
 		default:
 			var tree interface{}
-			tree, err := parser.ParseStmtList("go-repl", line[0:]);
+			tree, err := parser.ParseStmtList("go-repl", line[0:], nil);
 			if err != nil {
-				tree, err = parser.ParseDeclList("go-repl", line[0:]);
+				tree, err = parser.ParseDeclList("go-repl", line[0:], nil);
 				if err != nil {
 					fmt.Println("Parse error:", err);
 					continue;
