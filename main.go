@@ -75,7 +75,7 @@ func (self *World) source() string {
 }
 
 func compile(w *World) *bytes.Buffer {
-	ioutil.WriteFile(TEMPPATH+".go", strings.Bytes(w.source()), 0644);
+	ioutil.WriteFile(TEMPPATH+".go", []byte(w.source()), 0644);
 
 	err := new(bytes.Buffer);
 
